@@ -1,3 +1,10 @@
+"""
+Python Locale Measurement
+========================
+Developed by: Chirag Rathod (Srce Cde)
+Email: chiragr83@gmail.com
+========================
+"""
 import sys, os
 from datetime import datetime
 from measurement.measures import Distance, Weight, Temperature, Speed, Volume, Area
