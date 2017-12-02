@@ -10,12 +10,18 @@ from setuptools import setup
 setup(name='localemeasurement',
       version='0.1',
       description='locale based measurement',
+      classifiers=[
+        'Development Status :: 3 - Alpha',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3'],
+      keywords = ['locale', 'measurement', 'unit', 'conversion'],\
       url='https://github.com/srcecde/locale-measurement',
-      author='Srce Cde',
+      author='Srce Cde (Chirag Rathod)',
       author_email='chiragr83@gmail.com',
       license='MIT',
-      packages=['measurement', 'quantities', 'babel', 'pytz', 'simpledate'],
+      packages=['localemeasurement'],
       install_requires=[
-          'markdown',
+          'measurement', 'quantities', 'babel', 'pytz', 'simple-date'
       ],
+      include_package_data=True,
       zip_safe=False)

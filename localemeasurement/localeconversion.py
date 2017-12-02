@@ -63,7 +63,7 @@ USA_METRIC_STANDARD_LOCALE = {
 
 def decorate(func):
     def func_wrapper(*args, **kwargs):
-        if args[1] == 'en_US':
+        if args[1] == 'en_US' or args[1] == 'my_MM':
             MS = IMPERIAL_STANDARD
             MSL = USA_METRIC_STANDARD_LOCALE
         else:
@@ -71,10 +71,16 @@ def decorate(func):
             MSL = METRIC_STANDARD_LOCALE
 
         OBJ_STR = args[0].__name__.lower()
+        if args[0].__name__.lower() == 'mass':
+            OBJ_STR = 'weight'
 
         if OBJ_STR in MS and OBJ_STR is not list(MS.keys())[-1]:
-            TO_METRIC = MS[OBJ_STR]
-            METRIC = MSL[TO_METRIC]
+            if args[1] == 'en_GB' and OBJ_STR == 'distance':
+                TO_METRIC = 'mi'
+                METRIC = 'length-mile'
+            else:
+                TO_METRIC = MS[OBJ_STR]
+                METRIC = MSL[TO_METRIC]
 
             return {
                     "from": str(*kwargs), 
@@ -92,11 +98,9 @@ def decorate(func):
             return {"from": str(*kwargs), 
                     "to": METRIC, 
                     "unit": kwargs[str(*kwargs)], 
-                    "convertedUnit": [format_unit(float(str((i * sourceObj).rescale(TO_METRIC)).split(' ')[0]), METRIC, locale=args[1]) for i in list(*kwargs.values())]}
-        return 
+                    "convertedUnit": [format_unit(float(str((i * sourceObj).rescale(TO_METRIC)).split(' ')[0]), METRIC, locale=args[1]) for i in list(*kwargs.values())]} 
     return func_wrapper
 
 @decorate
 def unitConversion(unit, scale, conType):
     return
-
