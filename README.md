@@ -48,7 +48,8 @@ A Python wrapper around measurement, quantities, babel, pytz, simple-date for co
       from localeconversion import PRESSURE
       unitConversion(PRESSURE, 'hi_IN', **{"kPa": [1,2,3]}
 
-<br>
+
 The paramters that are passed in the dict args, should follow <a href="http://python-measurement.readthedocs.io/en/latest/">measurement</a> standards.
-<br>
+
+
 <b>For queries or issues, feel free to contact or open an <a href="https://github.com/srcecde/locale-measurement/issues">issue</a></b>

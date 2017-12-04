@@ -210,6 +210,9 @@ PRESSURE
       from localeconversion import PRESSURE
       unitConversion(PRESSURE, 'hi_IN', **{"kPa": [1,2,3]}
 
- The paramters that are passed in the dict args, should follow
-measurement standards. For queries or issues, feel free to contact or
-open an issue
+
+The paramters that are passed in the dict args, should follow
+measurement standards. 
+
+For queries or issues, feel free to contact or
+open an `issue <https://github.com/srcecde/locale-measurement/issues>`_
